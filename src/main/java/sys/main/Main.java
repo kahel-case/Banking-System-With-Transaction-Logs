@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import sys.collection.ImageCollection;
 import sys.collection.SceneCollection;
 import sys.utility.UserDataHandler;
-import sys.utility.UserTransactionHandler;
 
 import java.io.IOException;
 

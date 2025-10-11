@@ -14,8 +14,10 @@ import sys.collection.EnumCollection;
 import sys.collection.SceneCollection;
 import sys.utility.*;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -68,6 +70,8 @@ public class MainApplicationController implements Initializable {
 
         mainPage_label_userName.setText(currentUser);
         setCurrentBalanceLabels();
+
+        EventQueue.invokeLater(this::instantiateHistory);
     }
 
     @FXML
@@ -166,6 +170,11 @@ public class MainApplicationController implements Initializable {
             refreshFields();
             return;
         }
+        if (receiverName.equalsIgnoreCase(currentUser)) {
+            DialogUtility.showError("Input Error", "You cannot transfer balance to your own account!");
+            refreshFields();
+            return;
+        }
 
         currentUserBalance -= transferredBalance;
         UserDataHandler.updateBalance(currentUser, currentUserBalance);
@@ -214,12 +223,40 @@ public class MainApplicationController implements Initializable {
     *   PRIVATE METHODS
     * */
     private void generateTransactionLog(String username, String method, double amount) {
+        String referenceNumber = ReferenceNumber.generateReferenceNumber();
+
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDateTime = now.format(formatter);
 
-        if (UserTransactionHandler.addTransaction(username, ReferenceNumber.generateReferenceNumber(), formattedDateTime, method, amount)) {
+        if (UserTransactionHandler.addTransaction(username, referenceNumber, formattedDateTime, method, amount) && username.equalsIgnoreCase(currentUser)) {
+            TransactionLog log = new TransactionLog(referenceNumber, formattedDateTime, amount, method);
+            transactionHistory_contentArea.getChildren().addFirst(log);
             System.out.println("Transaction recorded.");
+        }
+    }
+
+    private void instantiateHistory() {
+        String USER_DATA = "jdbc:sqlite:src/main/resources/sys/data/user/user-data.db";
+        String sql = String.format("SELECT * FROM %s_transaction", currentUser);
+
+        try (Connection conn = DriverManager.getConnection(USER_DATA);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                String referenceNumber = rs.getString("referenceNumber");
+                String date = rs.getString("date");
+                String method = rs.getString("method");
+                double amount = rs.getDouble("amount");
+
+                TransactionLog log = new TransactionLog(referenceNumber, date, amount, method);
+                transactionHistory_contentArea.getChildren().addFirst(log);
+            }
+
+            System.out.println("Transaction history successfully instantiated!");
+        } catch (Exception e) {
+            System.out.println("Instantiation error: " + e.getMessage());
         }
     }
 
