@@ -12,14 +12,13 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import sys.collection.EnumCollection;
 import sys.collection.SceneCollection;
-import sys.utility.DialogUtility;
-import sys.utility.SceneHandler;
-import sys.utility.UserDataHandler;
+import sys.utility.*;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
@@ -89,37 +88,45 @@ public class MainApplicationController implements Initializable {
 
         currentUserBalance += depositedBalance;
         UserDataHandler.updateBalance(currentUser, currentUserBalance);
+
         setCurrentBalanceLabels();
         refreshFields();
+
+        generateTransactionLog(currentUser, "DEPOSIT", depositedBalance);
+
         DialogUtility.showInfo("Deposit", String.format("Successfully deposited ₱%.2f to your account.", depositedBalance));
     }
 
     @FXML
     protected void withdrawAction() {
-        double withdrawnBalance;
+        double withdrawnAmount;
         try {
-            withdrawnBalance = Double.parseDouble(textField_withdraw.getText());
+            withdrawnAmount = Double.parseDouble(textField_withdraw.getText());
         } catch (NumberFormatException e) {
             DialogUtility.showError("Empty", "Please enter a value in the given fields!");
             refreshFields();
             return;
         }
-        if (withdrawnBalance <= 0) {
+        if (withdrawnAmount <= 0) {
             DialogUtility.showError("Input Error", "The deposited value cannot be less than or equal to zero!");
             refreshFields();
             return;
         }
-        if (withdrawnBalance > currentUserBalance) {
+        if (withdrawnAmount > currentUserBalance) {
             DialogUtility.showError("Input Error", "The deposited value cannot be more than the current balance!");
             refreshFields();
             return;
         }
 
-        currentUserBalance -= withdrawnBalance;
+        currentUserBalance -= withdrawnAmount;
         UserDataHandler.updateBalance(currentUser, currentUserBalance);
+
         setCurrentBalanceLabels();
         refreshFields();
-        DialogUtility.showInfo("Withdraw", String.format("Successfully withdrawn ₱%.2f from your account.", withdrawnBalance));
+
+        generateTransactionLog(currentUser, "WITHDRAW", withdrawnAmount);
+
+        DialogUtility.showInfo("Withdraw", String.format("Successfully withdrawn ₱%.2f from your account.", withdrawnAmount));
     }
 
     @FXML
@@ -163,8 +170,13 @@ public class MainApplicationController implements Initializable {
         currentUserBalance -= transferredBalance;
         UserDataHandler.updateBalance(currentUser, currentUserBalance);
         UserDataHandler.updateBalance(receiverName, receiverCurrentBalance + transferredBalance);
+
         setCurrentBalanceLabels();
         refreshFields();
+
+        generateTransactionLog(currentUser, String.format("TRANSFER TO %s", receiverName), transferredBalance);
+        generateTransactionLog(receiverName, String.format("TRANSFER FROM %s", currentUser), transferredBalance);
+
         DialogUtility.showInfo("Transfer", String.format("Successfully transferred ₱%.2f to '%s'.", transferredBalance, receiverName));
     }
 
@@ -201,6 +213,16 @@ public class MainApplicationController implements Initializable {
     /*
     *   PRIVATE METHODS
     * */
+    private void generateTransactionLog(String username, String method, double amount) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
+
+        if (UserTransactionHandler.addTransaction(username, ReferenceNumber.generateReferenceNumber(), formattedDateTime, method, amount)) {
+            System.out.println("Transaction recorded.");
+        }
+    }
+
     private void setCurrentBalanceLabels() {
         DecimalFormat d = new DecimalFormat("#,###.##");
         String formattedBalance = d.format(currentUserBalance);

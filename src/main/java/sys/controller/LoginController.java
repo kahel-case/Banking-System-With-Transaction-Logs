@@ -11,6 +11,7 @@ import sys.collection.SceneCollection;
 import sys.utility.DialogUtility;
 import sys.utility.SceneHandler;
 import sys.utility.UserDataHandler;
+import sys.utility.UserTransactionHandler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -113,6 +114,7 @@ public class LoginController implements Initializable {
         }
 
         if (UserDataHandler.createUser(username, password, EnumCollection.Active)) {
+            UserTransactionHandler.createUserTable(username);
             DialogUtility.showInfo("Success", "User successfully created!");
         } else {
             DialogUtility.showWarning("User Exists", String.format("The username '%s' is already taken!\nPlease choose another one.", username));
