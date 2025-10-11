@@ -1,0 +1,18 @@
+[Runtime Monitor] Main.launch() completed.
+ - Thread: main
+ - Execution time: 3064.195 ms
+ - Memory used: 6571.49 KB
+
+ 
+[Runtime Monitor] Main.launch() completed.
+ - Thread: main
+ - Execution time: 7401.526 ms
+ - Memory used: 13650.38 KB
+
+ 
+[Runtime Monitor] Main.launch() completed.
+ - Thread: main
+ - Execution time: 13719.589 ms
+ - Memory used: 15989.89 KB
+
+ 
