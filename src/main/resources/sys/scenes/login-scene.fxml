@@ -18,7 +18,7 @@
                   <Image url="@../images/Logo/Logo_Big_WorldBank.png" />
                </image>
             </ImageView>
-            <TextField fx:id="loginPage_userName" alignment="CENTER" maxHeight="40.0" maxWidth="320.0" prefHeight="40.0" prefWidth="320.0" promptText="Sign In">
+            <TextField fx:id="loginPage_userName" alignment="CENTER" maxHeight="40.0" maxWidth="320.0" prefHeight="40.0" prefWidth="320.0" promptText="Username">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
