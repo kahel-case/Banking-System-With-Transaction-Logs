@@ -88,6 +88,20 @@ public class UserDataHandler {
         }
     }
 
+    public static void updateUserStatus(String username, String status) {
+        String sql = "UPDATE users SET status = ? WHERE username = ?";
+        try (Connection conn = DriverManager.getConnection(USER_DATA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, status);
+            stmt.setString(2, username);
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("UserDataHandler error: " + e.getMessage());
+        }
+    }
+
     public static double getUserBalance(String username) {
         double balance = 0.0;
         try (Connection conn = DriverManager.getConnection(USER_DATA);

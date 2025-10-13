@@ -4,9 +4,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import sys.collection.EnumCollection;
 import sys.collection.SceneCollection;
 
 public class UserInfo extends HBox {
@@ -24,14 +24,26 @@ public class UserInfo extends HBox {
         TextFlow textArea = new TextFlow();
         textArea.setLineSpacing(5);
 
-        Text text = new Text(String.format("USERNAME: %s - STATUS: %s", _username, _status));
+        Text text = new Text();
+        updateText(text);
         textArea.setMinWidth(250);
         textArea.getChildren().addLast(text);
 
         Button blockButton = new Button("Block");
         blockButton.setMinSize(100, 40);
+        blockButton.setOnAction(_ -> {
+            this._status = EnumCollection.Blocked;
+            UserDataHandler.updateUserStatus(_username, _status);
+            updateText(text);
+        });
+
         Button unblockButton = new Button("Unblock");
         unblockButton.setMinSize(100, 40);
+        unblockButton.setOnAction(_ -> {
+            this._status = EnumCollection.Active;
+            UserDataHandler.updateUserStatus(_username, EnumCollection.Active);
+            updateText(text);
+        });
 
 
         this.getChildren().addLast(textArea);
@@ -41,5 +53,9 @@ public class UserInfo extends HBox {
         this.setSpacing(15);
         this.setAlignment(Pos.CENTER);
         HBox.setMargin(this, new Insets(10));
+    }
+
+    public void updateText(Text newText) {
+        newText.setText(String.format("Name: %s - Status: %s", _username, _status));
     }
 }
