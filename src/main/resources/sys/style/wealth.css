@@ -1,0 +1,71 @@
+.text-field {
+    -fx-background-radius: 40px;
+    -fx-border-radius: 40px;
+}
+.gradient-bg {
+    -fx-background-color: linear-gradient(to bottom right, #a130c7, #fc5432, #fafa57);
+    -fx-padding: 15;
+}
+.pane-bg {
+    -fx-background-color: linear-gradient(to bottom right, #a130c7, #fc5432, #fafa57);
+    -fx-border-color: transparent;
+    -fx-border-radius: 40px;
+    -fx-background-radius: 40px;
+    -fx-border-color: #7a7aff;
+    -fx-effect: dropshadow(gaussian, #ffffff66, 1, 0.5, 0, 5);
+}
+.pane-bg-corner {
+    -fx-background-color: linear-gradient(to bottom right, #a130c7, #fc5432, #fafa57);
+    -fx-border-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-border-color: #7a7aff;
+    -fx-effect: dropshadow(gaussian, #ffffff66, 1, 0.5, 0, 5);
+}
+.logo {
+    -fx-effect: dropshadow(gaussian, #ffffff99, 1, 0.5, 0, 1);
+}
+.default-button {
+    -fx-background-radius: 40px;
+    -fx-background-color: linear-gradient(#ffffff, #adadff);
+    -fx-border-radius: 40px;
+    -fx-border-color: #c2c2ff;
+    -fx-text-fill: #000045;
+    -fx-font-weight: bold;
+}
+.default-button:hover {
+    -fx-background-radius: 40px;
+    -fx-background-color: linear-gradient(#adadff, #ffc4ad);
+    -fx-border-radius: 40px;
+    -fx-border-color: #7a7aff;
+    -fx-text-fill: #000045;
+    -fx-font-weight: bold;
+}
+.default-button:pressed {
+    -fx-background-radius: 40px;
+    -fx-background-color: linear-gradient(#9966FF, #CCaaFF);
+    -fx-border-radius: 40px;
+    -fx-border-color: #3737b0;
+    -fx-text-fill: #000045;
+    -fx-font-weight: bold;
+}
+.back-button {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000045;
+    -fx-font-size: 12px;
+}
+.back-button:hover {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: #201099;
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(gaussian, #ffffff99, 1, 0.5, 0, 1);
+}
+.back-button:pressed {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: #201099;
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(gaussian, #56565699, 1, 0.5, 0, 1);
+}

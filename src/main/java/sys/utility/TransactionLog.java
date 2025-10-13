@@ -11,7 +11,7 @@ public class TransactionLog extends TextFlow {
     public TransactionLog(String referenceNumber, String date, double amount, String paymentMethod) {
         Text text = new Text();
 
-        this.setId("transaction_log");
+        this.setId("transaction-log");
         this.getStylesheets().add(SceneCollection.style);
         this.setLineSpacing(5);
 

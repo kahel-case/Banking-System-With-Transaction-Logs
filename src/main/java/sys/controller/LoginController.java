@@ -77,7 +77,11 @@ public class LoginController implements Initializable {
 
         // SPECIFICALLY LAUNCHES ADMIN PANEL IF CRITERIA MET
         if (UserDataHandler.getUserStatus(username).equalsIgnoreCase("Admin")) {
-            System.out.println("Launching Admin Panel");
+            try {
+                SceneHandler.switchScene((Stage) btn_logIn.getScene().getWindow(), SceneCollection.adminPanelScene);
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             refreshFields();
             return;
         }

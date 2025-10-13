@@ -1,9 +1,11 @@
 package sys.utility;
 
+import sys.collection.DatabaseCollection;
+
 import java.sql.*;
 
 public class UserTransactionHandler {
-    private static final String USER_DATA = "jdbc:sqlite:src/main/resources/sys/data/user/user-data.db";
+    private static final String USER_DATA = DatabaseCollection.USER_DATA;
 
     public static void createUserTable(String username) {
         try (Connection conn = DriverManager.getConnection(USER_DATA)) {
@@ -15,7 +17,7 @@ public class UserTransactionHandler {
         }
 
         try (Connection conn = DriverManager.getConnection(USER_DATA);
-             Statement stmt = conn.createStatement()) {
+            Statement stmt = conn.createStatement()) {
             String sql = String.format("""
                         CREATE TABLE IF NOT EXISTS %s_transaction (
                             referenceNumber TEXT NOT NULL,
@@ -36,7 +38,7 @@ public class UserTransactionHandler {
         String sql = String.format("INSERT INTO %s_transaction (referenceNumber, date, method, amount) VALUES (?, ?, ?, ?)", username);
 
         try (Connection conn = DriverManager.getConnection(USER_DATA);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, referenceNumber);
             stmt.setString(2, date);

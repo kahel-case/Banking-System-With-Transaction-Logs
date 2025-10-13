@@ -9,12 +9,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sys.controller.LoginController">
+<StackPane styleClass="gradient-bg" stylesheets="@../style/default-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sys.controller.LoginController">
    <children>
-      <VBox fx:id="launcher_signInPage" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" visible="false">
+      <VBox fx:id="launcher_signInPage" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
          <children>
-            <ImageView fitHeight="159.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="159.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true" styleClass="logo">
                <image>
                   <Image url="@../images/Logo/Logo_Big_WorldBank.png" />
                </image>
@@ -25,8 +24,8 @@
                </VBox.margin>
             </TextField>
             <PasswordField fx:id="loginPage_password" alignment="CENTER" maxHeight="40.0" maxWidth="320.0" prefHeight="40.0" prefWidth="320.0" promptText="Password" />
-            <Button fx:id="btn_logIn" mnemonicParsing="false" onAction="#launchMainApplication" prefHeight="40.0" prefWidth="200.0" text="Log In" />
-            <Button id="backButton" mnemonicParsing="false" onAction="#toMainPage" prefHeight="40.0" prefWidth="120.0" text="Back" />
+            <Button fx:id="btn_logIn" mnemonicParsing="false" onAction="#launchMainApplication" prefHeight="40.0" prefWidth="200.0" styleClass="default-button" text="Log In" />
+            <Button mnemonicParsing="false" onAction="#toMainPage" prefHeight="40.0" prefWidth="120.0" styleClass="back-button" text="Back" />
          </children>
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" />
@@ -37,18 +36,18 @@
           <Insets bottom="40.0" left="20.0" right="20.0" />
         </padding>
          <children>
-            <ImageView fitHeight="237.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="237.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true" styleClass="logo">
                <image>
                   <Image url="@../images/Logo/Logo_Big_WorldBank.png" />
                </image>
             </ImageView>
-            <Button fx:id="btn_signIn" mnemonicParsing="false" onAction="#toSignInPage" prefHeight="40.0" prefWidth="200.0" text="Sign In" />
-            <Button fx:id="btn_createAccount" mnemonicParsing="false" onAction="#toCreateAccountPage" prefHeight="40.0" prefWidth="200.0" text="Create Account" />
+            <Button fx:id="btn_signIn" mnemonicParsing="false" onAction="#toSignInPage" prefHeight="40.0" prefWidth="200.0" styleClass="default-button" text="Sign In" />
+            <Button fx:id="btn_createAccount" mnemonicParsing="false" onAction="#toCreateAccountPage" prefHeight="40.0" prefWidth="200.0" styleClass="default-button" text="Create Account" />
          </children>
       </VBox>
-      <VBox fx:id="launcher_createAccountPage" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+      <VBox fx:id="launcher_createAccountPage" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" visible="false">
          <children>
-            <ImageView fitHeight="159.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="159.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true" styleClass="logo">
                <image>
                   <Image url="@../images/Logo/Logo_Big_WorldBank.png" />
                </image>
@@ -60,8 +59,8 @@
             </TextField>
             <PasswordField fx:id="createAccountPage_password" alignment="CENTER" maxHeight="40.0" maxWidth="320.0" prefHeight="40.0" prefWidth="320.0" promptText="Password" />
             <PasswordField fx:id="createAccountPage_confirmPassword" alignment="CENTER" maxHeight="40.0" maxWidth="320.0" prefHeight="40.0" prefWidth="320.0" promptText="Confirm Password" />
-            <Button fx:id="btn_createAccount" mnemonicParsing="false" onAction="#onCreateAccount" prefHeight="40.0" prefWidth="200.0" text="Create Account" />
-            <Button id="backButton" mnemonicParsing="false" onAction="#toMainPage" prefHeight="40.0" prefWidth="120.0" text="Back" />
+            <Button fx:id="btn_createAccount" mnemonicParsing="false" onAction="#onCreateAccount" prefHeight="40.0" prefWidth="200.0" styleClass="default-button" text="Create Account" />
+            <Button mnemonicParsing="false" onAction="#toMainPage" prefHeight="40.0" prefWidth="120.0" styleClass="back-button" text="Back" />
          </children>
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" />

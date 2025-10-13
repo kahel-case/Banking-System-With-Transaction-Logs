@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import sys.collection.DatabaseCollection;
 import sys.collection.EnumCollection;
 import sys.collection.SceneCollection;
 import sys.utility.*;
@@ -192,6 +193,7 @@ public class MainApplicationController implements Initializable {
     @FXML
     protected void toMainPage() {
         switchPage(EnumCollection.MainApp.MAIN_PAGE);
+        refreshFields();
     }
 
     @FXML
@@ -237,10 +239,9 @@ public class MainApplicationController implements Initializable {
     }
 
     private void instantiateHistory() {
-        String USER_DATA = "jdbc:sqlite:src/main/resources/sys/data/user/user-data.db";
         String sql = String.format("SELECT * FROM %s_transaction", currentUser);
 
-        try (Connection conn = DriverManager.getConnection(USER_DATA);
+        try (Connection conn = DriverManager.getConnection(DatabaseCollection.USER_DATA);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 

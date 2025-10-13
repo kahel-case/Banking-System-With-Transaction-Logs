@@ -1,10 +1,12 @@
 package sys.utility;
 
 
+import sys.collection.DatabaseCollection;
+
 import java.sql.*;
 
 public class UserDataHandler {
-    private static final String USER_DATA = "jdbc:sqlite:src/main/resources/sys/data/user/user-data.db";
+    private static final String USER_DATA = DatabaseCollection.USER_DATA;
 
     public static void CreateTable() {
         try (Connection conn = DriverManager.getConnection(USER_DATA)) {

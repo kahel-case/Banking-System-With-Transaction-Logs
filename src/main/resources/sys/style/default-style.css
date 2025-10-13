@@ -1,0 +1,103 @@
+/*
+    GENERIC ATTRIBUTES
+*/
+.text-field {
+    -fx-background-radius: 40px;
+    -fx-border-radius: 40px;
+ }
+.button {
+    -fx-background-color: linear-gradient(#888888, #000000);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #00000033, 5, 0.5, 0, 3);
+}
+.button:hover {
+    -fx-background-color: linear-gradient(#777777, #444444);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #00000033, 3, 0.5, 0, 2);
+}
+.button:pressed {
+    -fx-background-color: linear-gradient(#999999, #CCCCCC);
+    -fx-text-fill: #000000;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-border-color: #000000;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #00000000, 0, 0, 0, 0);
+}
+.back-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #00000000, 0, 0, 0, 0);
+}
+.back-button:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: linear-gradient(#333333, #777777);
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #00000000, 0, 0, 0, 0);
+}
+.back-button:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: linear-gradient(#AAAAAA, #AAAAAA);
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #00000000, 0, 0, 0, 0);
+}
+
+/*
+    UNIQUE ATTRIBUTES
+*/
+#transparent {
+    -fx-background-color: transparent;
+}
+#transaction-log {
+    -fx-background-color: linear-gradient(to bottom right, #fefefe, #bbbbbb);
+    -fx-border-color: transparent;
+    -fx-border-radius: 40px;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, #00000033, 10, 0.5, 0, 3);
+}
+#user-info {
+    -fx-background-color: linear-gradient(to bottom right, #fefefe, #bbbbbb);
+    -fx-border-color: transparent;
+    -fx-border-radius: 40px;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, #00000033, 10, 0.5, 0, 3);
+}
+.gradient-bg {
+    -fx-background-color: linear-gradient(to bottom right, #ededed, #aaaaaa);
+}
+.rounded-background {
+    -fx-background-color: linear-gradient(to bottom right, #fefefe, #bbbbbb);
+    -fx-border-color: transparent;
+    -fx-border-radius: 40px;
+    -fx-background-radius: 40px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, #00000033, 10, 0.5, 0, 3);
+}
+.background {
+    -fx-background-color: linear-gradient(to bottom right, #fefefe, #bbbbbb);
+    -fx-border-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, #00000033, 10, 0.5, 0, 3);
+}
+.scrollpane {
+    -fx-background-color: linear-gradient(to bottom right, #fefefe, #bbbbbb);
+    -fx-border-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, #00000033, 10, 0.5, 0, 3);
+}

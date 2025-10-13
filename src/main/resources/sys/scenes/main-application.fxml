@@ -18,21 +18,18 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sys.controller.MainApplicationController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="480.0" minWidth="560.0" prefHeight="480.0" prefWidth="560.0" styleClass="gradient-bg" stylesheets="@../style/default-style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sys.controller.MainApplicationController">
    <children>
-      <VBox fx:id="mainApp_mainPage" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="18.0" visible="false" StackPane.alignment="TOP_CENTER">
+      <VBox fx:id="mainApp_mainPage" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="480.0" minWidth="560.0" spacing="20.0" visible="false" StackPane.alignment="TOP_CENTER">
          <children>
-            <HBox>
+            <HBox maxWidth="1.7976931348623157E308" styleClass="background">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
-               <padding>
-                  <Insets left="20.0" right="20.0" top="20.0" />
-               </padding>
                <children>
                   <HBox HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="btn_logOut" mnemonicParsing="false" onAction="#logOut" prefHeight="54.0" prefWidth="54.0" HBox.hgrow="ALWAYS">
+                        <Button fx:id="btn_logOut" minHeight="44.0" minWidth="44.0" mnemonicParsing="false" onAction="#logOut" prefHeight="44.0" prefWidth="44.0" styleClass="default-button" HBox.hgrow="ALWAYS">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -48,7 +45,7 @@
                   </HBox>
                   <HBox alignment="TOP_RIGHT" visible="false" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="btn_notification" mnemonicParsing="false" prefHeight="54.0" prefWidth="54.0" HBox.hgrow="ALWAYS">
+                        <Button fx:id="btn_notification" minHeight="44.0" minWidth="44.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0" HBox.hgrow="ALWAYS">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -63,22 +60,13 @@
                      </children>
                   </HBox>
                </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
             </HBox>
-            <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <StackPane maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="254.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/Background/background_gray_2.png" />
-                     </image>
-                     <effect>
-                        <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0">
-                           <color>
-                              <Color opacity="0.18320611119270325" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </ImageView>
-                  <VBox fx:id="page_main" alignment="TOP_CENTER" spacing="18.0">
+                  <VBox fx:id="page_main" alignment="TOP_CENTER" maxWidth="250.0" minWidth="250.0" spacing="18.0" styleClass="rounded-background" StackPane.alignment="CENTER">
                      <children>
                         <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
                            <children>
@@ -114,12 +102,19 @@
                            </children>
                         </VBox>
                      </children>
+                     <effect>
+                        <DropShadow height="3.41" offsetX="2.0" offsetY="2.0" radius="0.35250000000000004" width="0.0">
+                           <color>
+                              <Color opacity="0.37022900581359863" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </VBox>
                </children>
             </StackPane>
             <TilePane alignment="CENTER" hgap="5.0" prefColumns="1" vgap="5.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="btn_toDepositPage" mnemonicParsing="false" onAction="#toDepositPage" prefHeight="50.0" prefWidth="110.0" text="Deposit">
+                  <Button fx:id="btn_toDepositPage" mnemonicParsing="false" onAction="#toDepositPage" prefHeight="50.0" prefWidth="110.0" styleClass="default-button" text="Deposit">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -128,7 +123,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_toWithdrawPage" mnemonicParsing="false" onAction="#toWithdrawPage" prefHeight="50.0" prefWidth="110.0" text="Withdraw">
+                  <Button fx:id="btn_toWithdrawPage" mnemonicParsing="false" onAction="#toWithdrawPage" prefHeight="50.0" prefWidth="110.0" styleClass="default-button" text="Withdraw">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -137,7 +132,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_toTransferPage" mnemonicParsing="false" onAction="#toTransferPage" prefHeight="50.0" prefWidth="110.0" text="Transfer">
+                  <Button fx:id="btn_toTransferPage" mnemonicParsing="false" onAction="#toTransferPage" prefHeight="50.0" prefWidth="110.0" styleClass="default-button" text="Transfer">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -146,7 +141,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btn_toHistoryPage" mnemonicParsing="false" onAction="#toHistoryPage" prefHeight="50.0" prefWidth="110.0" text="History">
+                  <Button fx:id="btn_toHistoryPage" mnemonicParsing="false" onAction="#toHistoryPage" prefHeight="50.0" prefWidth="110.0" styleClass="default-button" text="History">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -158,13 +153,13 @@
                </children>
             </TilePane>
          </children>
-         <padding>
-            <Insets bottom="60.0" />
-         </padding>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
       </VBox>
-      <VBox fx:id="mainApp_depositPage" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" StackPane.alignment="TOP_CENTER">
+      <VBox fx:id="mainApp_depositPage" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" minHeight="480.0" minWidth="560.0" visible="false" StackPane.alignment="TOP_CENTER">
          <children>
-            <HBox id="background_sharp" spacing="40.0">
+            <HBox id="background_sharp" maxWidth="1.7976931348623157E308" spacing="40.0" styleClass="background">
                <children>
                   <Button mnemonicParsing="false" onAction="#toMainPage" text="Back">
                      <graphic>
@@ -193,7 +188,7 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox id="background_sharp" alignment="TOP_CENTER" maxWidth="300.0" prefWidth="300.0">
+                  <VBox alignment="TOP_CENTER" maxWidth="300.0" prefWidth="300.0" styleClass="rounded-background">
                      <children>
                         <Label alignment="CENTER" text="Current Balance" textAlignment="CENTER" />
                         <HBox alignment="CENTER" prefWidth="200.0">
@@ -230,7 +225,7 @@
                         <Font size="22.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btn_depositAction" mnemonicParsing="false" onAction="#depositAction" prefHeight="47.0" prefWidth="110.0" text="Deposit" />
+                  <Button fx:id="btn_depositAction" mnemonicParsing="false" onAction="#depositAction" prefHeight="47.0" prefWidth="110.0" styleClass="default-button" text="Deposit" />
                </children>
                <VBox.margin>
                   <Insets left="40.0" right="40.0" />
@@ -238,9 +233,9 @@
             </VBox>
          </children>
       </VBox>
-      <VBox fx:id="mainApp_withdrawPage" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+      <VBox fx:id="mainApp_withdrawPage" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" minHeight="480.0" minWidth="560.0" visible="false">
          <children>
-            <HBox id="background_sharp" spacing="40.0">
+            <HBox id="background_sharp" maxWidth="1.7976931348623157E308" spacing="40.0" styleClass="background">
                <children>
                   <Button mnemonicParsing="false" onAction="#toMainPage" text="Back">
                      <graphic>
@@ -269,7 +264,7 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox id="background_sharp" alignment="TOP_CENTER" maxWidth="300.0" prefWidth="300.0">
+                  <VBox id="background_sharp" alignment="TOP_CENTER" maxWidth="300.0" prefWidth="300.0" styleClass="rounded-background">
                      <children>
                         <Label alignment="CENTER" text="Current Balance" textAlignment="CENTER" />
                         <HBox alignment="CENTER" prefWidth="200.0">
@@ -306,7 +301,7 @@
                         <Font size="22.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btn_withdrawAction" mnemonicParsing="false" onAction="#withdrawAction" prefHeight="47.0" prefWidth="110.0" text="Withdraw" />
+                  <Button fx:id="btn_withdrawAction" mnemonicParsing="false" onAction="#withdrawAction" prefHeight="47.0" prefWidth="110.0" styleClass="default-button" text="Withdraw" />
                </children>
                <VBox.margin>
                   <Insets left="40.0" right="40.0" />
@@ -314,9 +309,9 @@
             </VBox>
          </children>
       </VBox>
-      <VBox fx:id="mainApp_transferPage" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+      <VBox fx:id="mainApp_transferPage" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" minHeight="480.0" minWidth="560.0" visible="false">
          <children>
-            <HBox id="background_sharp" spacing="40.0">
+            <HBox id="background_sharp" maxWidth="1.7976931348623157E308" spacing="40.0" styleClass="background">
                <children>
                   <Button mnemonicParsing="false" onAction="#toMainPage" text="Back">
                      <graphic>
@@ -345,7 +340,7 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox id="background_sharp" alignment="TOP_CENTER" maxWidth="300.0" prefWidth="300.0">
+                  <VBox id="background_sharp" alignment="TOP_CENTER" maxWidth="300.0" prefWidth="300.0" styleClass="rounded-background">
                      <children>
                         <Label alignment="CENTER" text="Current Balance" textAlignment="CENTER" />
                         <HBox alignment="CENTER" prefWidth="200.0">
@@ -395,9 +390,9 @@
             </VBox>
          </children>
       </VBox>
-      <VBox fx:id="mainApp_historyPage" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+      <VBox fx:id="mainApp_historyPage" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" minHeight="480.0" minWidth="560.0" spacing="10.0">
          <children>
-            <HBox id="background_sharp" spacing="40.0">
+            <HBox id="background_sharp" maxWidth="1.7976931348623157E308" spacing="40.0" styleClass="background">
                <children>
                   <Button mnemonicParsing="false" onAction="#toMainPage" text="Back">
                      <graphic>
@@ -421,9 +416,9 @@
                   <DropShadow />
                </effect>
             </HBox>
-            <ScrollPane fitToHeight="true" fitToWidth="true">
+            <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;">
                <content>
-                  <VBox fx:id="transactionHistory_contentArea" alignment="TOP_CENTER" minWidth="532.0" />
+                  <VBox fx:id="transactionHistory_contentArea" alignment="TOP_CENTER" minWidth="532.0" style="-fx-background-color: #00000000;" />
                </content>
             </ScrollPane>
          </children>
