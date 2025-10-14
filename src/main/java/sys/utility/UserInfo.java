@@ -30,7 +30,7 @@ public class UserInfo extends HBox {
         textArea.getChildren().addLast(text);
 
         Button blockButton = new Button("Block");
-        blockButton.setMinSize(100, 40);
+        blockButton.setMinSize(100, 30);
         blockButton.setOnAction(_ -> {
             this._status = EnumCollection.Blocked;
             UserDataHandler.updateUserStatus(_username, _status);
@@ -38,7 +38,7 @@ public class UserInfo extends HBox {
         });
 
         Button unblockButton = new Button("Unblock");
-        unblockButton.setMinSize(100, 40);
+        unblockButton.setMinSize(100, 30);
         unblockButton.setOnAction(_ -> {
             this._status = EnumCollection.Active;
             UserDataHandler.updateUserStatus(_username, EnumCollection.Active);
@@ -49,7 +49,7 @@ public class UserInfo extends HBox {
         this.getChildren().addLast(textArea);
         this.getChildren().addLast(blockButton);
         this.getChildren().addLast(unblockButton);
-        this.setMinHeight(80);
+        this.setMinHeight(60);
         this.setSpacing(15);
         this.setAlignment(Pos.CENTER);
         HBox.setMargin(this, new Insets(10));
